@@ -8,9 +8,11 @@ type HelloState =
 
 export function HelloPage() {
   const [state, setState] = useState<HelloState>({ status: 'loading' })
+  const [name, setName] = useState('')
 
   useEffect(() => {
     let isCurrent = true
+
 
     getHello()
       .then((response) => {
@@ -29,6 +31,17 @@ export function HelloPage() {
     }
   }, [])
 
+
+  const handleSend = () => {
+    getHello(name)
+      .then((response) => {
+        setState({ status: 'success', message: response.message })
+      })
+      .catch((error) => {
+        console.error('error', error)
+      })
+  }
+
   if (state.status === 'loading') {
     return <p role="status">Loading message from the backend…</p>
   }
@@ -37,5 +50,16 @@ export function HelloPage() {
     return <p role="alert">Could not load the backend message. Is the backend running?</p>
   }
 
-  return <p>{state.message}</p>
+  return (
+    <>
+      <p>{state.message}</p>
+      <input
+        type="text"
+        placeholder="Add meg a neved"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <button type="button" onClick={handleSend}>Küldés</button>
+    </>
+  )
 }

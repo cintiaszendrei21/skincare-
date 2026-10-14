@@ -2,8 +2,9 @@ export interface HelloResponse {
   message: string
 }
 
-export async function getHello(): Promise<HelloResponse> {
-  const response = await fetch('/api/hello')
+export async function getHello(name?: string): Promise<HelloResponse> {
+  const url = name ? `/api/hello?name=${encodeURIComponent(name)}` : '/api/hello'
+  const response = await fetch(url)
 
   if (!response.ok) {
     throw new Error('The backend request failed.')
