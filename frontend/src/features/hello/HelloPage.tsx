@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getHello } from '../../api/apiClient'
+import { getHello, sayHello } from '../../api/apiClient'
 
 type HelloState =
   | { status: 'loading' }
@@ -38,7 +38,7 @@ export function HelloPage() {
           setErrorMessage('A névnek legalább 2 karakter hosszúnak kell lennie!')
           return
         }
-        getHello(name)
+        sayHello(name)
           .then((response) => {
             setState({ status: 'success', message: response.message })
           })
