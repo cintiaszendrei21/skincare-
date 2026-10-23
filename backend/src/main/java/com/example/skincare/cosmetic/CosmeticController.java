@@ -1,7 +1,5 @@
-package com.example.skincare.controller;
+package com.example.skincare.cosmetic;
 
-import com.example.skincare.dto.CreateCosmeticDto;
-import com.example.skincare.entity.CosmeticEntity;
 import com.example.skincare.service.CosmeticService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;

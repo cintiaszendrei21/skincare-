@@ -1,4 +1,4 @@
-package com.example.skincare.dto;
+package com.example.skincare.cosmetic;
 
 import jakarta.validation.constraints.NotBlank;
 

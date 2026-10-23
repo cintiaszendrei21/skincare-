@@ -1,8 +1,8 @@
 package com.example.skincare.service;
 
-import com.example.skincare.dto.CreateCosmeticDto;
-import com.example.skincare.entity.CosmeticEntity;
-import com.example.skincare.repository.CosmeticRepository;
+import com.example.skincare.cosmetic.CreateCosmeticDto;
+import com.example.skincare.cosmetic.CosmeticEntity;
+import com.example.skincare.cosmetic.CosmeticRepository;
 import org.springframework.stereotype.Service;
 
 @Service
